@@ -1,4 +1,4 @@
-  <div id="main_cnt_wrapper">
+    <div id="main_cnt_wrapper">
     <div id="yjContentsBody">
       <div class="yjContainer">
         <span class="yjGuid"><a id="yjContentsStart" name="yjContentsStart"></a><img alt="ここから本文です" height="1" src="http://i.yimg.jp/yui/jp/tmpl/1.1.0/audionav.gif" width="1"></span>
@@ -14,7 +14,7 @@
                 <img src="<%= @product.image_url %>" alt="<%= @product.title %>">
               </p>
               <div style="text-align: right">
-                <a href="">この作品を投稿する</a>
+                <a href="/products/<%= @product.id %>/reviews/new">この作品を投稿する</a>
               </div>
               <header class="header header--section">
                 <h2 class="text-middle">
@@ -22,19 +22,21 @@
                 </h2>
               </header>
               <ul style="padding: 0">
+                <% @product.reviews.each do |review| %>
                 <li style="border-bottom: dotted 1px">
                   <div class="thumbnail__caption">
-                    <h3 class="text-xsmall text-overflow" title="テスト太郎">
-                      テスト太郎
+                     <h3 class="text-xsmall text-overflow" title="<%= review.user.nickname %>">
+                      <span><i class="icon-rate-60 text-xxsmall opacity-60" title=""></i></span><%= review.user.nickname %>
                     </h3>
                     <p class="text-small">
-                      <span class="rating-star"><i class="star-actived rate-[ここに評価を表示]0"></i></span>
+                      <span class="rating-star"><i class="star-actived rate-<%= review.rate %>0"></i></span>
                     </p>
                     <p>
-                      面白い！
+                      <%= review.review %>
                     </p>
                   </div>
                 </li>
+                <% end %>
               </ul>
             </div>
           </article>

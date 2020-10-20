@@ -11,7 +11,8 @@
                 </h2>
               </header>
               <%= form_tag('/products/search', method: :get) do %>
-                <input class="search__query" name="keyword" placeholder="作品名で検索" type="text" value=""><button class="btn-search" title="検索" type="submit"><i class="icon-search"></i></button></input>
+                <input class="search__query" name="keyword" placeholder="作品名で検索" type="text" value="">
+                <button class="btn-search" title="検索" type="submit"><i class="icon-search"></i></button></input>
               <% end %>
               <form accept-charset="utf-8" action="/" class="js-search-submit" method="get">
               </form>
